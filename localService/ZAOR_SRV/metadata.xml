@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='ER9CLNT001_T')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZAOR_SRV" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Zaor_PlantprodType" sap:content-version="1" sap:label="AOR - Production Supervisor">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="ProductionSupervisor"/>
+                </Key>
+                <Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property MaxLength="3" Name="ProductionSupervisor" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Prodn Supervisor" sap:text="ProductionSupervisorName"/>
+                <Property MaxLength="30" Name="ProductionSupervisorName" Type="Edm.String" sap:label="Prodn Superv. Name"/>
+                <Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/>
+            </EntityType>
+            <EntityType Name="Zaor_WorkcenterType" sap:content-version="1" sap:label="Area of Responsibility-Work Center">
+                <Key>
+                    <PropertyRef Name="WorkCenter"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work Center"/>
+                <Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:text="PlantName"/>
+                <Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/>
+                <Property MaxLength="8" Name="WorkCenterInternalID" Type="Edm.String" sap:display-format="NonNegative" sap:label="Object ID"/>
+                <Property MaxLength="40" Name="WorkCenterText" Type="Edm.String" sap:label="Work Center Text"/>
+            </EntityType>
+            <EntityType Name="Zsfc_Aor_ViewType" sap:content-version="1" sap:label="AOR Consumption View">
+                <Key>
+                    <PropertyRef Name="username"/>
+                    <PropertyRef Name="plant"/>
+                    <PropertyRef Name="workcenter"/>
+                </Key>
+                <Property MaxLength="12" Name="username" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="User"/>
+                <Property MaxLength="4" Name="plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property MaxLength="8" Name="workcenter" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work center"/>
+            </EntityType>
+            <EntityContainer Name="ZAOR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet EntityType="ZAOR_SRV.Zaor_PlantprodType" Name="Zaor_Plantprod" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/>
+                <EntitySet EntityType="ZAOR_SRV.Zaor_WorkcenterType" Name="Zaor_Workcenter" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+                <EntitySet EntityType="ZAOR_SRV.Zsfc_Aor_ViewType" Name="Zsfc_Aor_View" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+            </EntityContainer>
+            <atom:link href="./sap/ZAOR_SRV/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link href="./sap/ZAOR_SRV/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

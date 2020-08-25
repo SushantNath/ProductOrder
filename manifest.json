@@ -1,0 +1,352 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"_version": "1.4.0",
+		"id": "i2d.mpe.orders.manages1",
+		"type": "application",
+		"resources": "resources.json",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "7.0.10"
+		},
+		"ach": "PP-FIO-SFC",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/PP_MPE_ORDER_MANAGE/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"mainAnnotationsSrv"
+					],
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"MPE_HOLD_SRV": {
+				"uri": "/sap/opu/odata/sap/MPE_HOLD_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "webapp/localService/MPE_HOLD_SRV/metadata.xml"
+				}
+			},
+			"mainAnnotationsSrv": {
+				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='PP_MPE_ORDER_MANAGE_ANNO_MDL',Version='0001')/$value",
+				"type": "ODataAnnotation"
+			},
+			"AOR": {
+				"uri": "/sap/opu/odata/sap/PP_MPE_AOR/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/PP_MPE_AOR/metadata.xml"
+				}
+			},
+			"MaterialPopOver": {
+				"uri": "/sap/opu/odata/sap/MPE_MATERIAL_POVER/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "webapp/localService/MPE_MATERIAL_POVER/metadata.xml"
+				}
+			},
+			"MPE_PRODNORD_POVER": {
+				"uri": "/sap/opu/odata/sap/MPE_PRODNORD_POVER/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "webapp/localService/MPE_PRODNORD_POVER/metadata.xml"
+				}
+			},
+			"MPE_WORKCENTER_POVER": {
+				"uri": "/sap/opu/odata/sap/MPE_WORKCENTER_POVER/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "webapp/localService/MPE_WORKCENTER_POVER/metadata.xml"
+				}
+			},
+			"QM_DEFECT_RECORD_SRV": {
+				"uri": "/sap/opu/odata/SAP/MPE_EXEC_NON_CONFORMANCE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/MPE_EXEC_NON_CONFORMANCE_SRV/metadata.xml"
+				}
+			},
+			"MPE_ORDER_SPECIFIC_ROUTING_SRV": {
+				"uri": "/sap/opu/odata/sap/MPE_ORDER_SPECIFIC_ROUTING_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/MPE_ORDER_SPECIFIC_ROUTING_SRV/metadata.xml"
+				}
+			},
+			"MPE_CHANGE_RECORD_EXEC_SRV": {
+				"uri": "/sap/opu/odata/sap/MPE_CHANGE_RECORD_EXEC_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/MPE_CHANGE_RECORD_EXEC_SRV/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.platform.abap": {
+		"_version": "1.2.0",
+		"uri": "/sap/bc/ui5_ui5/sap/MPE_ORDER_MANS1"
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [
+			"F2336"
+		],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"rootView": {
+			"viewName": "i2d.mpe.orders.manages1.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.71.5",
+			"libs": {
+				"sap.ui.core": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.m": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.ushell": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.i2d.mpe.lib.commons1": {
+					"minVersion": "11.11.0-SNAPSHOT",
+					"lazy": false
+				},
+				"sap.i2d.mpe.lib.aors1": {
+					"minVersion": "11.10.0-SNAPSHOT",
+					"lazy": true
+				},
+				"sap.ui.comp": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.uxap": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.ui.layout": {
+					"minVersion": "1.38.0",
+					"lazy": false
+				},
+				"sap.i2d.mpe.lib.popovers1": {
+					"minVersion": "11.5.0-SNAPSHOT",
+					"lazy": true
+				},
+				"sap.f": {
+					"minVersion": "1.42.0",
+					"lazy": false
+				},
+				"sap.i2d.mpe.lib.qmcomps1": {
+					"minVersion": "11.9.0-SNAPSHOT",
+					"lazy": true
+				},
+				"sap.i2d.lo.lib.vchclf": {
+					"minVersion": "1.0.0-SNAPSHOT",
+					"lazy": false
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "i2d.mpe.orders.manages1.i18n.i18n"
+				},
+				"preload": false
+			},
+			"": {
+				"preload": true,
+				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading",
+						"sap-value-list": "none"
+					},
+					"defaultCountMode": "Inline"
+				}
+			},
+			"HoldModel": {
+				"preload": true,
+				"dataSource": "MPE_HOLD_SRV",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"AOR": {
+				"preload": true,
+				"dataSource": "AOR",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"Material": {
+				"preload": true,
+				"dataSource": "MaterialPopOver",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"PRODORD": {
+				"preload": true,
+				"dataSource": "MPE_PRODNORD_POVER",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"WORKCENTER": {
+				"preload": true,
+				"dataSource": "MPE_WORKCENTER_POVER",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"Defects": {
+				"dataSource": "QM_DEFECT_RECORD_SRV",
+				"preload": true
+			},
+			"OSR": {
+				"uri": "/sap/opu/odata/sap/MPE_ORDER_SPECIFIC_ROUTING_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "MPE_ORDER_SPECIFIC_ROUTING_SRV",
+				"preload": true
+			},
+			"CR": {
+				"uri": "/sap/opu/odata/sap/MPE_CHANGE_RECORD_EXEC_SRV/",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "MPE_CHANGE_RECORD_EXEC_SRV",
+				"preload": true
+			}
+		},
+		"config": {
+			"fullWidth": true,
+			"sapFiori2Adaptation": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "i2d.mpe.orders.manages1.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": "objectNotFound"
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "ManageOrders/sap-iapp-state={iAppState}",
+					"name": "worklist",
+					"target": "worklist"
+				},
+				{
+					"pattern": "ManageOrders/{orderId}/sap-iapp-state={iAppState}",
+					"name": "object",
+					"target": "object"
+				},
+				{
+					"pattern": "object/{orderId}",
+					"name": "Configuration",
+					"target": "Configuration"
+				},
+				{
+					"pattern": ":all*:",
+					"name": "catchAll",
+					"target": ""
+				}
+			],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "worklist",
+					"viewLevel": 1
+				},
+				"object": {
+					"viewName": "Object",
+					"viewId": "object",
+					"viewLevel": 2
+				},
+				"Configuration": {
+					"viewName": "Configuration",
+					"viewId": "Configuration"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

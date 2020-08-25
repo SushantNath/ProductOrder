@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="PP_MPE_AOR" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_ProdnSupervisorType" sap:content-version="1" sap:label="View for Production Supervisor and Plant AOR">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="ProductionSupervisor"/>
+                </Key>
+                <Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property MaxLength="3" Name="ProductionSupervisor" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Production Supervisor" sap:text="ProductionSupervisorName"/>
+                <Property MaxLength="30" Name="ProductionSupervisorName" Type="Edm.String" sap:label="Prodn Superv. Name" sap:quickinfo="Production Supervisor Name"/>
+                <Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/>
+            </EntityType>
+            <EntityType Name="C_WorkCenterAreaOfRespyType" sap:content-version="1" sap:label="View for Work Center and Plant AOR">
+                <Key>
+                    <PropertyRef Name="WorkCenter"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property MaxLength="8" Name="WorkCenter" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work Center"/>
+                <Property MaxLength="4" Name="Plant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant" sap:text="PlantName"/>
+                <Property MaxLength="30" Name="PlantName" Type="Edm.String" sap:label="Plant Name"/>
+                <Property MaxLength="8" Name="WorkCenterInternalID" Type="Edm.String" sap:display-format="NonNegative" sap:label="Object ID" sap:quickinfo="Object ID of the resource"/>
+                <Property MaxLength="40" Name="WorkCenterText" Type="Edm.String" sap:label="Work Center Text"/>
+            </EntityType>
+            <EntityContainer Name="PP_MPE_AOR_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet EntityType="PP_MPE_AOR.C_ProdnSupervisorType" Name="C_ProdnSupervisor" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/>
+                <EntitySet EntityType="PP_MPE_AOR.C_WorkCenterAreaOfRespyType" Name="C_WorkCenterAreaOfRespy" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:updatable="false"/>
+            </EntityContainer>
+            <atom:link href="./sap/PP_MPE_AOR/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link href="./sap/PP_MPE_AOR/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

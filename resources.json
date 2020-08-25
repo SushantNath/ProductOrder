@@ -1,0 +1,1075 @@
+{
+	"_version": "1.1.0",
+	"resources": [
+		{
+			"name": "Component-dbg.js",
+			"module": "i2d/mpe/orders/manages1/Component.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+				"i2d/mpe/orders/manages1/model/models.js",
+				"sap/ui/Device.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/routing/HashChanger.js",
+				"sap/ui/core/routing/History.js"
+			]
+		},
+		{
+			"name": "Component-h2-preload-dbg.js",
+			"module": "i2d/mpe/orders/manages1/Component-h2-preload.js",
+			"isDebug": true,
+			"merged": true,
+			"required": [
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageHeader.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/i2d/mpe/lib/aors1/AOR/AORFragmentHandler.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ComponentsBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ConfirmationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/InspectionBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/IssuesBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeader.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderInformationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderScheduleBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ShopFloorItemBlock.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/EditQtyAndDateDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklist.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/saveAsTile.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/IssuePopOverController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/ProductionOrderController.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Defects.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Formatter.js",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/DefectMessageStrip.fragment.xml",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/defectRecordingList.fragment.xml",
+				"sap/m/App.js",
+				"sap/m/Button.js",
+				"sap/m/Link.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageToast.js",
+				"sap/m/MultiComboBox.js",
+				"sap/m/Page.js",
+				"sap/m/Select.js",
+				"sap/m/VBox.js",
+				"sap/m/semantic/FullscreenPage.js",
+				"sap/m/semantic/MessagesIndicator.js",
+				"sap/ui/Device.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/comp/smartfilterbar/ControlConfiguration.js",
+				"sap/ui/comp/smartfilterbar/SmartFilterBar.js",
+				"sap/ui/comp/smartvariants/SmartVariantManagement.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Item.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/core/routing/HashChanger.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/type/Time.js",
+				"sap/ui/model/resource/ResourceModel.js",
+				"sap/uxap/ObjectPageHeader.js",
+				"sap/uxap/ObjectPageLayout.js",
+				"sap/uxap/ObjectPageSection.js",
+				"sap/uxap/ObjectPageSubSection.js"
+			],
+			"included": [
+				"i2d/mpe/orders/manages1/Component.js",
+				"i2d/mpe/orders/manages1/manifest.json",
+				"i2d/mpe/orders/manages1/controller/App.controller.js",
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+				"i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+				"i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+				"i2d/mpe/orders/manages1/controller/Object.controller.js",
+				"i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+				"i2d/mpe/orders/manages1/fragments/MessagePopover.fragment.xml",
+				"i2d/mpe/orders/manages1/i18n/i18n.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ar.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_bg.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ca.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_cs.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_da.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_de.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_el.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_es.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_et.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hu.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_it.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_iw.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ja.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_kk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ko.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ms.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_nl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_no.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ro.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ru.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sh.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_th.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_tr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_uk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_vi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_CN.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_TW.properties",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"i2d/mpe/orders/manages1/model/models.js",
+				"i2d/mpe/orders/manages1/view/App.view.xml",
+				"i2d/mpe/orders/manages1/view/Configuration.view.xml",
+				"i2d/mpe/orders/manages1/view/NotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Object.view.xml",
+				"i2d/mpe/orders/manages1/view/ObjectNotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Worklist.view.xml"
+			]
+		},
+		{
+			"name": "Component-h2-preload.js",
+			"module": "i2d/mpe/orders/manages1/Component-h2-preload.js",
+			"merged": true,
+			"required": [
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageHeader.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/i2d/mpe/lib/aors1/AOR/AORFragmentHandler.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ComponentsBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ConfirmationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/InspectionBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/IssuesBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeader.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderInformationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderScheduleBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ShopFloorItemBlock.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/EditQtyAndDateDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklist.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/saveAsTile.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/IssuePopOverController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/ProductionOrderController.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Defects.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Formatter.js",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/DefectMessageStrip.fragment.xml",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/defectRecordingList.fragment.xml",
+				"sap/m/App.js",
+				"sap/m/Button.js",
+				"sap/m/Link.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageToast.js",
+				"sap/m/MultiComboBox.js",
+				"sap/m/Page.js",
+				"sap/m/Select.js",
+				"sap/m/VBox.js",
+				"sap/m/semantic/FullscreenPage.js",
+				"sap/m/semantic/MessagesIndicator.js",
+				"sap/ui/Device.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/comp/smartfilterbar/ControlConfiguration.js",
+				"sap/ui/comp/smartfilterbar/SmartFilterBar.js",
+				"sap/ui/comp/smartvariants/SmartVariantManagement.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Item.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/core/routing/HashChanger.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/type/Time.js",
+				"sap/ui/model/resource/ResourceModel.js",
+				"sap/uxap/ObjectPageHeader.js",
+				"sap/uxap/ObjectPageLayout.js",
+				"sap/uxap/ObjectPageSection.js",
+				"sap/uxap/ObjectPageSubSection.js"
+			],
+			"included": [
+				"i2d/mpe/orders/manages1/Component.js",
+				"i2d/mpe/orders/manages1/manifest.json",
+				"i2d/mpe/orders/manages1/controller/App.controller.js",
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+				"i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+				"i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+				"i2d/mpe/orders/manages1/controller/Object.controller.js",
+				"i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+				"i2d/mpe/orders/manages1/fragments/MessagePopover.fragment.xml",
+				"i2d/mpe/orders/manages1/i18n/i18n.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ar.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_bg.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ca.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_cs.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_da.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_de.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_el.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_es.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_et.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hu.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_it.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_iw.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ja.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_kk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ko.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ms.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_nl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_no.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ro.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ru.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sh.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_th.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_tr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_uk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_vi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_CN.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_TW.properties",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"i2d/mpe/orders/manages1/model/models.js",
+				"i2d/mpe/orders/manages1/view/App.view.xml",
+				"i2d/mpe/orders/manages1/view/Configuration.view.xml",
+				"i2d/mpe/orders/manages1/view/NotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Object.view.xml",
+				"i2d/mpe/orders/manages1/view/ObjectNotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Worklist.view.xml"
+			]
+		},
+		{
+			"name": "Component-preload.js",
+			"module": "i2d/mpe/orders/manages1/Component-preload.js",
+			"merged": true,
+			"required": [
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageHeader.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/i2d/mpe/lib/aors1/AOR/AORFragmentHandler.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ComponentsBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ConfirmationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/InspectionBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/IssuesBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeader.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderInformationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderScheduleBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ShopFloorItemBlock.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/EditQtyAndDateDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklist.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/saveAsTile.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/IssuePopOverController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/ProductionOrderController.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Defects.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Formatter.js",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/DefectMessageStrip.fragment.xml",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/defectRecordingList.fragment.xml",
+				"sap/m/App.js",
+				"sap/m/Button.js",
+				"sap/m/Link.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePage.js",
+				"sap/m/MessagePopover.js",
+				"sap/m/MessageToast.js",
+				"sap/m/MultiComboBox.js",
+				"sap/m/Page.js",
+				"sap/m/Select.js",
+				"sap/m/VBox.js",
+				"sap/m/semantic/FullscreenPage.js",
+				"sap/m/semantic/MessagesIndicator.js",
+				"sap/ui/Device.js",
+				"sap/ui/base/Object.js",
+				"sap/ui/comp/smartfilterbar/ControlConfiguration.js",
+				"sap/ui/comp/smartfilterbar/SmartFilterBar.js",
+				"sap/ui/comp/smartvariants/SmartVariantManagement.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Item.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/core/mvc/Controller.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/ui/core/routing/HashChanger.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/odata/type/Time.js",
+				"sap/ui/model/resource/ResourceModel.js",
+				"sap/uxap/ObjectPageHeader.js",
+				"sap/uxap/ObjectPageLayout.js",
+				"sap/uxap/ObjectPageSection.js",
+				"sap/uxap/ObjectPageSubSection.js"
+			],
+			"included": [
+				"i2d/mpe/orders/manages1/Component.js",
+				"i2d/mpe/orders/manages1/controller/App.controller.js",
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+				"i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+				"i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+				"i2d/mpe/orders/manages1/controller/Object.controller.js",
+				"i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+				"i2d/mpe/orders/manages1/fragments/MessagePopover.fragment.xml",
+				"i2d/mpe/orders/manages1/i18n/i18n.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ar.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_bg.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ca.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_cs.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_da.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_de.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_el.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_sappsd.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_en_US_saptrc.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_es.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_et.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_fr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_hu.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_it.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_iw.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ja.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_kk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ko.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_lv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ms.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_nl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_no.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_pt.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ro.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_ru.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sh.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sl.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_sv.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_th.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_tr.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_uk.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_vi.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_CN.properties",
+				"i2d/mpe/orders/manages1/i18n/i18n_zh_TW.properties",
+				"i2d/mpe/orders/manages1/manifest.json",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"i2d/mpe/orders/manages1/model/models.js",
+				"i2d/mpe/orders/manages1/view/App.view.xml",
+				"i2d/mpe/orders/manages1/view/Configuration.view.xml",
+				"i2d/mpe/orders/manages1/view/NotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Object.view.xml",
+				"i2d/mpe/orders/manages1/view/ObjectNotFound.view.xml",
+				"i2d/mpe/orders/manages1/view/Worklist.view.xml"
+			]
+		},
+		{
+			"name": "Component.js",
+			"module": "i2d/mpe/orders/manages1/Component.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+				"i2d/mpe/orders/manages1/model/models.js",
+				"sap/ui/Device.js",
+				"sap/ui/core/UIComponent.js",
+				"sap/ui/core/routing/HashChanger.js",
+				"sap/ui/core/routing/History.js"
+			]
+		},
+		{
+			"name": "controller/App-dbg.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/App.controller.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/App.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/App.controller.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/BaseController-dbg.js",
+			"module": "i2d/mpe/orders/manages1/controller/BaseController.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/mvc/Controller.js"
+			]
+		},
+		{
+			"name": "controller/BaseController.js",
+			"module": "i2d/mpe/orders/manages1/controller/BaseController.js",
+			"required": [
+				"sap/ui/core/mvc/Controller.js"
+			]
+		},
+		{
+			"name": "controller/Configuration-dbg.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/Configuration.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "controller/ErrorHandler-dbg.js",
+			"module": "i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+			"isDebug": true,
+			"required": [
+				"sap/m/MessageBox.js",
+				"sap/ui/base/Object.js"
+			]
+		},
+		{
+			"name": "controller/ErrorHandler.js",
+			"module": "i2d/mpe/orders/manages1/controller/ErrorHandler.js",
+			"required": [
+				"sap/m/MessageBox.js",
+				"sap/ui/base/Object.js"
+			]
+		},
+		{
+			"name": "controller/NotFound-dbg.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/NotFound.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js"
+			]
+		},
+		{
+			"name": "controller/Object-dbg.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Object.controller.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Defects.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Formatter.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/resource/ResourceModel.js"
+			]
+		},
+		{
+			"name": "controller/Object.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Object.controller.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Defects.js",
+				"sap/i2d/mpe/lib/qmcomps1/util/Formatter.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/core/routing/History.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/resource/ResourceModel.js"
+			]
+		},
+		{
+			"name": "controller/Worklist-dbg.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+			"isDebug": true,
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"sap/i2d/mpe/lib/aors1/AOR/AORFragmentHandler.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/EditQtyAndDateDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/saveAsTile.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/IssuePopOverController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/ProductionOrderController.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/resource/ResourceModel.js"
+			]
+		},
+		{
+			"name": "controller/Worklist.controller.js",
+			"module": "i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/BaseController.js",
+				"i2d/mpe/orders/manages1/model/formatter.js",
+				"sap/i2d/mpe/lib/aors1/AOR/AORFragmentHandler.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ApplyHoldDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/EditQtyAndDateDialog.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrdSpcfcChange.js",
+				"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus.js",
+				"sap/i2d/mpe/lib/commons1/utils/NavHelper.js",
+				"sap/i2d/mpe/lib/commons1/utils/constants.js",
+				"sap/i2d/mpe/lib/commons1/utils/formatter.js",
+				"sap/i2d/mpe/lib/commons1/utils/saveAsTile.js",
+				"sap/i2d/mpe/lib/commons1/utils/util.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/IssuePopOverController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/MaterialController.js",
+				"sap/i2d/mpe/lib/popovers1/fragments/ProductionOrderController.js",
+				"sap/m/MessageBox.js",
+				"sap/m/MessageToast.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
+				"sap/ui/model/json/JSONModel.js",
+				"sap/ui/model/resource/ResourceModel.js"
+			]
+		},
+		{
+			"name": "fragments/MessagePopover.fragment.xml",
+			"module": "i2d/mpe/orders/manages1/fragments/MessagePopover.fragment.xml",
+			"required": [
+				"sap/m/MessageItem.js",
+				"sap/m/MessagePopover.js",
+				"sap/ui/core/Fragment.js"
+			]
+		},
+		{
+			"name": "i18n/i18n.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n.properties",
+			"locale": "",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ar.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ar.properties",
+			"locale": "ar",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_bg.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_bg.properties",
+			"locale": "bg",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ca.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ca.properties",
+			"locale": "ca",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_cs.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_cs.properties",
+			"locale": "cs",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_da.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_da.properties",
+			"locale": "da",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_de.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_de.properties",
+			"locale": "de",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_el.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_el.properties",
+			"locale": "el",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_en.properties",
+			"locale": "en",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_sappsd.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_en_US_sappsd.properties",
+			"locale": "en_US_sappsd",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_en_US_saptrc.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_en_US_saptrc.properties",
+			"locale": "en_US_saptrc",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_es.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_es.properties",
+			"locale": "es",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_et.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_et.properties",
+			"locale": "et",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fi.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_fi.properties",
+			"locale": "fi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_fr.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_fr.properties",
+			"locale": "fr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hi.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_hi.properties",
+			"locale": "hi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hr.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_hr.properties",
+			"locale": "hr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_hu.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_hu.properties",
+			"locale": "hu",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_it.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_it.properties",
+			"locale": "it",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_iw.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_iw.properties",
+			"locale": "iw",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ja.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ja.properties",
+			"locale": "ja",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_kk.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_kk.properties",
+			"locale": "kk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ko.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ko.properties",
+			"locale": "ko",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lt.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_lt.properties",
+			"locale": "lt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_lv.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_lv.properties",
+			"locale": "lv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ms.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ms.properties",
+			"locale": "ms",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_nl.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_nl.properties",
+			"locale": "nl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_no.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_no.properties",
+			"locale": "no",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pl.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_pl.properties",
+			"locale": "pl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_pt.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_pt.properties",
+			"locale": "pt",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ro.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ro.properties",
+			"locale": "ro",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_ru.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_ru.properties",
+			"locale": "ru",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sh.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_sh.properties",
+			"locale": "sh",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sk.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_sk.properties",
+			"locale": "sk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sl.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_sl.properties",
+			"locale": "sl",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_sv.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_sv.properties",
+			"locale": "sv",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_th.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_th.properties",
+			"locale": "th",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_tr.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_tr.properties",
+			"locale": "tr",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_uk.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_uk.properties",
+			"locale": "uk",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_vi.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_vi.properties",
+			"locale": "vi",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_CN.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_zh_CN.properties",
+			"locale": "zh_CN",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "i18n/i18n_zh_TW.properties",
+			"module": "i2d/mpe/orders/manages1/i18n/i18n_zh_TW.properties",
+			"locale": "zh_TW",
+			"raw": "i18n/i18n.properties"
+		},
+		{
+			"name": "localService/MPE_CHANGE_RECORD_EXEC_SRV/metadata.xml"
+		},
+		{
+			"name": "localService/MPE_ORDER_SPECIFIC_ROUTING_SRV/metadata.xml"
+		},
+		{
+			"name": "localService/MPE_PRODNORD_POVER/metadata.xml"
+		},
+		{
+			"name": "localService/MPE_WORKCENTER_POVER/metadata.xml"
+		},
+		{
+			"name": "localService/PP_MPE_AOR/metadata.xml"
+		},
+		{
+			"name": "localService/PP_MPE_AOR/mockserver_AOR-dbg.js",
+			"isDebug": true
+		},
+		{
+			"name": "localService/PP_MPE_AOR/mockserver_AOR.js"
+		},
+		{
+			"name": "localService/PP_MPE_ORDER_MANAGE/C_ManageProductionOrder.json"
+		},
+		{
+			"name": "localService/PP_MPE_ORDER_MANAGE/C_Manageoperations.json"
+		},
+		{
+			"name": "localService/PP_MPE_ORDER_MANAGE/metadata.xml"
+		},
+		{
+			"name": "localService/ZAOR_SRV/metadata.xml"
+		},
+		{
+			"name": "localService/metadata.xml"
+		},
+		{
+			"name": "localService/mockserver-dbg.js",
+			"isDebug": true
+		},
+		{
+			"name": "localService/mockserver.js"
+		},
+		{
+			"name": "manifest.json",
+			"module": "i2d/mpe/orders/manages1/manifest.json"
+		},
+		{
+			"name": "model/formatter-dbg.js",
+			"module": "i2d/mpe/orders/manages1/model/formatter.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/odata/type/Time.js"
+			]
+		},
+		{
+			"name": "model/formatter.js",
+			"module": "i2d/mpe/orders/manages1/model/formatter.js",
+			"required": [
+				"sap/ui/core/format/DateFormat.js",
+				"sap/ui/model/Filter.js",
+				"sap/ui/model/odata/type/Time.js"
+			]
+		},
+		{
+			"name": "model/models-dbg.js",
+			"module": "i2d/mpe/orders/manages1/model/models.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/Device.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "model/models.js",
+			"module": "i2d/mpe/orders/manages1/model/models.js",
+			"required": [
+				"sap/ui/Device.js",
+				"sap/ui/model/json/JSONModel.js"
+			]
+		},
+		{
+			"name": "resources.json"
+		},
+		{
+			"name": "version.json"
+		},
+		{
+			"name": "view/App.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/App.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/App.controller.js",
+				"sap/m/App.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		},
+		{
+			"name": "view/Configuration.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/Configuration.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/Configuration.controller.js",
+				"sap/m/App.js",
+				"sap/m/Page.js",
+				"sap/ui/core/ComponentContainer.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		},
+		{
+			"name": "view/NotFound.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/NotFound.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+				"sap/m/Link.js",
+				"sap/m/MessagePage.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		},
+		{
+			"name": "view/Object.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/Object.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/Object.controller.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ComponentsBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ConfirmationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/InspectionBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/IssuesBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeader.fragment.xml",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderInformationBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/OrderScheduleBlock.js",
+				"sap/i2d/mpe/lib/commons1/blocks/ShopFloorItemBlock.js",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/DefectMessageStrip.fragment.xml",
+				"sap/i2d/mpe/lib/qmcomps1/view/DefectsFragment/defectRecordingList.fragment.xml",
+				"sap/m/Button.js",
+				"sap/m/VBox.js",
+				"sap/m/semantic/FullscreenPage.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/mvc/XMLView.js",
+				"sap/uxap/ObjectPageHeader.js",
+				"sap/uxap/ObjectPageLayout.js",
+				"sap/uxap/ObjectPageSection.js",
+				"sap/uxap/ObjectPageSubSection.js"
+			]
+		},
+		{
+			"name": "view/ObjectNotFound.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/ObjectNotFound.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/NotFound.controller.js",
+				"sap/m/Link.js",
+				"sap/m/MessagePage.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		},
+		{
+			"name": "view/Worklist.view.xml",
+			"module": "i2d/mpe/orders/manages1/view/Worklist.view.xml",
+			"required": [
+				"i2d/mpe/orders/manages1/controller/Worklist.controller.js",
+				"sap/f/DynamicPage.js",
+				"sap/f/DynamicPageHeader.js",
+				"sap/f/DynamicPageTitle.js",
+				"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklist.fragment.xml",
+				"sap/m/MultiComboBox.js",
+				"sap/m/Select.js",
+				"sap/m/semantic/FullscreenPage.js",
+				"sap/m/semantic/MessagesIndicator.js",
+				"sap/ui/comp/smartfilterbar/ControlConfiguration.js",
+				"sap/ui/comp/smartfilterbar/SmartFilterBar.js",
+				"sap/ui/comp/smartvariants/SmartVariantManagement.js",
+				"sap/ui/core/CustomData.js",
+				"sap/ui/core/Fragment.js",
+				"sap/ui/core/Item.js",
+				"sap/ui/core/mvc/XMLView.js"
+			]
+		}
+	]
+}

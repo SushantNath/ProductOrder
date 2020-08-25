@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="MPE_WORKCENTER_POVER" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="C_MPEWorkCenterPoverType" sap:content-version="1" sap:label="Work Center Popover">
+                <Key>
+                    <PropertyRef Name="WorkCenterInternalID"/>
+                    <PropertyRef Name="WorkCenterTypeCode"/>
+                    <PropertyRef Name="OrderInternalBillOfOperations"/>
+                    <PropertyRef Name="OrderIntBillOfOperationsItem"/>
+                </Key>
+                <Property MaxLength="8" Name="WorkCenterInternalID" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Object ID" sap:quickinfo="Object ID of the resource"/>
+                <Property Name="OpLtstSchedldExecEndDte" Precision="0" Type="Edm.DateTime" sap:display-format="Date" sap:label="Execution End Date" sap:quickinfo="Latest Scheduled Execution End Date"/>
+                <Property Name="OpLtstSchedldExecEndTme" Precision="0" Type="Edm.Time" sap:label="Execution End Time" sap:quickinfo="Latest Scheduled Execution End Time"/>
+                <Property MaxLength="3" Name="OperationUnit" Type="Edm.String" sap:label="Operation Unit" sap:quickinfo="Operation Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="OpPlannedTotalQuantity" Precision="13" Scale="3" Type="Edm.Decimal" sap:label="Operation Quantity" sap:quickinfo="Operation Total Quantity" sap:unit="OperationUnit"/>
+                <Property MaxLength="40" Name="Material" Type="Edm.String" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number for Order"/>
+                <Property MaxLength="40" Name="WorkCenterText" Type="Edm.String" sap:label="Work Center Text"/>
+                <Property MaxLength="3" Name="WorkCenterResponsible" Type="Edm.String" sap:display-format="UpperCase" sap:label="Person Responsible" sap:quickinfo="Person Responsible for the Work Center"/>
+                <Property MaxLength="40" Name="WorkCenterResponsibleName" Type="Edm.String" sap:label="Name of Responsible" sap:quickinfo="Work Center Responsible Name"/>
+                <Property Name="ValidityEndDate" Precision="0" Type="Edm.DateTime" sap:display-format="Date" sap:label="Valid-To Date"/>
+                <Property Name="NumberOfCurrentOperations" Type="Edm.Byte"/>
+                <Property MaxLength="2" Name="WorkCenterTypeCode" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Object Type" sap:quickinfo="Object types of the CIM resource"/>
+                <Property MaxLength="4" Name="WorkCenterCategoryCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work Center Category"/>
+                <Property MaxLength="10" Name="WorkCenterLocation" Type="Edm.String" sap:display-format="UpperCase" sap:label="Location" sap:quickinfo="Work center location"/>
+                <Property MaxLength="10" Name="SupplyArea" Type="Edm.String" sap:display-format="UpperCase" sap:label="Prodn Supply Area" sap:quickinfo="Production Supply Area"/>
+                <Property MaxLength="3" Name="CapacityCategoryCode" Type="Edm.String" sap:display-format="UpperCase" sap:label="Capacity Category"/>
+                <Property MaxLength="20" Name="CapacityCategoryName" Type="Edm.String" sap:label="Capacity Cat. Name" sap:quickinfo="Description of a Capacity Category"/>
+                <Property MaxLength="8" Name="CapacityInternalID" Type="Edm.String" sap:display-format="NonNegative" sap:label="Capacity ID"/>
+                <Property MaxLength="8" Name="Capacity" Type="Edm.String" sap:display-format="UpperCase" sap:label="Capacity" sap:quickinfo="Capacity name"/>
+                <Property MaxLength="40" Name="CapacityText" Type="Edm.String" sap:label="Capacity Short Text"/>
+                <Property MaxLength="8" Name="WorkCenter" Type="Edm.String" sap:display-format="UpperCase" sap:label="Work Center"/>
+                <Property Name="CapacityNumberOfCapacities" Type="Edm.Int16" sap:label="No. Ind. Capacities" sap:quickinfo="Number of Individual Capacities"/>
+                <Property MaxLength="10" Name="OrderInternalBillOfOperations" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Order Internal" sap:quickinfo="Order Internal Bill of Operations ID"/>
+                <Property MaxLength="10" Name="MachineType" Type="Edm.String" sap:display-format="UpperCase" sap:label="Machine Type"/>
+                <Property MaxLength="4" Name="ControllingArea" Type="Edm.String" sap:display-format="UpperCase" sap:label="Controlling Area"/>
+                <Property MaxLength="10" Name="CostCenter" Type="Edm.String" sap:display-format="UpperCase" sap:label="Cost Center"/>
+                <Property MaxLength="4" Name="Plant" Type="Edm.String" sap:display-format="UpperCase" sap:label="Plant"/>
+                <Property MaxLength="8" Name="OrderIntBillOfOperationsItem" Nullable="false" Type="Edm.String" sap:display-format="NonNegative" sap:label="Order Internal Item" sap:quickinfo="Order Internal Bill of Operations Item"/>
+                <Property MaxLength="12" Name="ManufacturingOrder" Type="Edm.String" sap:display-format="UpperCase" sap:label="Manufacturing Order" sap:quickinfo="Manufacturing Order ID"/>
+                <Property MaxLength="4" Name="ManufacturingOrderOperation" Type="Edm.String" sap:display-format="UpperCase" sap:label="Order Operation" sap:quickinfo="Manufacturing Order Operation" sap:text="MfgOrderOperationText"/>
+                <Property MaxLength="40" Name="MfgOrderOperationText" Type="Edm.String" sap:label="Operation Text" sap:quickinfo="Manufacturing Order Operation Text"/>
+                <Property Name="OpActualExecutionStartDate" Precision="0" Type="Edm.DateTime" sap:display-format="Date" sap:label="Execution Start Date" sap:quickinfo="Actual Execution Start Date"/>
+                <Property Name="OpActualExecutionStartTime" Precision="0" Type="Edm.Time" sap:label="Execution Start Time" sap:quickinfo="Actual Execution Start Time"/>
+            </EntityType>
+            <EntityContainer Name="MPE_WORKCENTER_POVER_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet EntityType="MPE_WORKCENTER_POVER.C_MPEWorkCenterPoverType" Name="C_MPEWorkCenterPover" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+            </EntityContainer>
+            <atom:link href="./sap/MPE_WORKCENTER_POVER/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                <atom:link href="./sap/MPE_WORKCENTER_POVER/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

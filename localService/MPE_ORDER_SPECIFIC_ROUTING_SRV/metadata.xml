@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/></edmx:Reference>
+	<edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/></edmx:Reference>
+	<edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Communication" Namespace="com.sap.vocabularies.Communication.v1"/></edmx:Reference>
+	<edmx:Reference Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="MPE_ORDER_SPECIFIC_ROUTING_SRV" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="C_MfgOrderSpecificRoutingType" sap:content-version="1" sap:label="Manufacturing Order Specific Routing">
+				<Key><PropertyRef Name="BillOfOperationsGroup"/><PropertyRef Name="BillOfOperationsType"/><PropertyRef Name="BillOfOperationsVariant"/><PropertyRef Name="BillOfOperationsVersion"/></Key><Property Name="Createosr_ac" Type="Edm.Boolean" sap:creatable="false" sap:filterable="false" sap:label="Dyn. Action Control" sap:sortable="false" sap:updatable="false"/><Property MaxLength="8" Name="BillOfOperationsGroup" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Group" sap:quickinfo="Key for Task List Group"/><Property MaxLength="1" Name="BillOfOperationsType" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Task List Type"/><Property MaxLength="2" Name="BillOfOperationsVariant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Group Counter" sap:value-list="standard"/><Property MaxLength="4" Name="BillOfOperationsVersion" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Routing Version" sap:text="BillOfOperationsDesc"/><Property MaxLength="12" Name="ManufacturingOrder" Type="Edm.String" sap:display-format="UpperCase" sap:label="Order" sap:quickinfo="Order Number"/><Property MaxLength="40" Name="BillOfOperationsDesc" Type="Edm.String" sap:label="Description" sap:quickinfo="Description of the Routing Version"/><Property MaxLength="2" Name="BillOfOperationsVersionStatus" Type="Edm.String" sap:display-format="UpperCase" sap:label="Processing Status" sap:quickinfo="Processing Status for Routing Version"/><Property Name="ChangeRecordReferenceUUID" Type="Edm.Guid" sap:heading="" sap:label="NodeID"/><Property MaxLength="20" Name="ChangeRecord" Type="Edm.String" sap:display-format="UpperCase" sap:label="Change Record" sap:quickinfo="Change Record ID"/><Property MaxLength="3" Name="ChangeRecordType" Type="Edm.String" sap:display-format="UpperCase" sap:label="Record Type" sap:quickinfo="Change Record Type"/><Property MaxLength="40" Name="ChgRecordDescriptionText" Type="Edm.String" sap:label="Description" sap:quickinfo="Change Record Header Description"/></EntityType>
+			<EntityType Name="I_BillOfOperationsStdVHType" sap:content-version="1" sap:label="Bill of Operations" sap:value-list="true">
+				<Key><PropertyRef Name="BillOfOperationsType"/><PropertyRef Name="BillOfOperationsGroup"/><PropertyRef Name="BillOfOperationsVariant"/></Key><Property MaxLength="1" Name="BillOfOperationsType" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Task List Type"/><Property MaxLength="8" Name="BillOfOperationsGroup" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Group" sap:quickinfo="Key for Task List Group"/><Property MaxLength="2" Name="BillOfOperationsVariant" Nullable="false" Type="Edm.String" sap:display-format="UpperCase" sap:label="Group Counter"/></EntityType>
+			<EntityContainer Name="MPE_ORDER_SPECIFIC_ROUTING_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet EntityType="MPE_ORDER_SPECIFIC_ROUTING_SRV.C_MfgOrderSpecificRoutingType" Name="C_MfgOrderSpecificRouting" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/><EntitySet EntityType="MPE_ORDER_SPECIFIC_ROUTING_SRV.I_BillOfOperationsStdVHType" Name="I_BillOfOperationsStdVH" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"/>
+				<FunctionImport EntitySet="C_MfgOrderSpecificRouting" Name="C_MfgOrderSpecificRoutingCreateosr" ReturnType="MPE_ORDER_SPECIFIC_ROUTING_SRV.C_MfgOrderSpecificRoutingType" m:HttpMethod="POST" sap:action-for="MPE_ORDER_SPECIFIC_ROUTING_SRV.C_MfgOrderSpecificRoutingType" sap:applicable-path="Createosr_ac"><Parameter MaxLength="8" Mode="In" Name="BillOfOperationsGroup" Type="Edm.String"/><Parameter MaxLength="1" Mode="In" Name="BillOfOperationsType" Type="Edm.String"/><Parameter MaxLength="2" Mode="In" Name="BillOfOperationsVariant" Type="Edm.String"/><Parameter MaxLength="4" Mode="In" Name="BillOfOperationsVersion" Type="Edm.String"/><Parameter MaxLength="12" Mode="In" Name="ManufacturingOrder" Type="Edm.String"/><Parameter MaxLength="20" Mode="In" Name="ChangeRecord" Type="Edm.String"/><Parameter MaxLength="3" Mode="In" Name="ChangerecordType" Type="Edm.String"/><Parameter MaxLength="40" Mode="In" Name="ChgRecordDescriptionText" Type="Edm.String"/><Parameter MaxLength="10" Mode="In" Name="Partner" Type="Edm.String"/><Parameter MaxLength="10" Mode="In" Name="Orderinternalid" Type="Edm.String"/><Parameter MaxLength="8" Mode="In" Name="Orderoperationinternalid" Type="Edm.String"/></FunctionImport>
+			</EntityContainer>
+			<Annotations Target="MPE_ORDER_SPECIFIC_ROUTING_SRV.C_MfgOrderSpecificRoutingType/BillOfOperationsVariant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Bill of Operations"/><PropertyValue Property="CollectionPath" String="I_BillOfOperationsStdVH"/><PropertyValue Bool="false" Property="SearchSupported"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="BillOfOperationsVariant"/><PropertyValue Property="ValueListProperty" String="BillOfOperationsVariant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BillOfOperationsType"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="BillOfOperationsGroup"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="MPE_ORDER_SPECIFIC_ROUTING_SRV.MPE_ORDER_SPECIFIC_ROUTING_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue EnumMember="None" Property="Rollup"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="MPE_ORDER_SPECIFIC_ROUTING_SRV.MPE_ORDER_SPECIFIC_ROUTING_SRV_Entities/C_MfgOrderSpecificRouting" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>Createosr_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>Createosr_ac</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link href="./sap/MPE_ORDER_SPECIFIC_ROUTING_SRV/$metadata" rel="self" xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link href="./sap/MPE_ORDER_SPECIFIC_ROUTING_SRV/$metadata" rel="latest-version" xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

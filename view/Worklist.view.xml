@@ -3,7 +3,7 @@
     Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
 
 -->
-<mvc:View controllerName="i2d.mpe.orders.manages1.controller.Worklist" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+<mvc:View controllerName="i2d.mpe.orders.manages2.controller.Worklist" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
 	xmlns:semantic="sap.m.semantic" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:smartTable="sap.ui.comp.smarttable" xmlns="sap.m"
 	xmlns:smartVariants="sap.ui.comp.smartvariants" xmlns:f="sap.f">
@@ -117,7 +117,344 @@
 					</f:DynamicPageHeader>
 				</f:header>
 				<f:content>
-					<core:Fragment fragmentName="sap.i2d.mpe.lib.commons1.fragments.ManageOrderWorklist" type="XML"/>
+					<!--<core:Fragment fragmentName="sap.i2d.mpe.lib.commons1.fragments.ManageOrderWorklist" type="XML"/>-->
+						<smartTable:SmartTable demandPopin="true" beforeRebindTable="handleBeforeRebindTable" enableAutoBinding="true" dataReceived="onDataReceived"
+		smartVariant="idSmartVManagement" entitySet="C_ManageProductionOrder" header="{common_i18n>worklistTableTitle}" id="idMonitorOrdersTable"
+		persistencyKey="SmartTablePKey" showRowCount="true" smartFilterId="idSmartFilterBar" tableType="ResponsiveTable" useExportToExcel="true"
+		useTablePersonalisation="true" beforeExport="handleBeforeExport">
+		<smartTable:customToolbar>
+			<!-- idWorklistToolbar ID is needed for other Apps like the Analyze Change Impact App&nbsp;
+							to add App specific buttons. Don't delete it!!! -->
+			<OverflowToolbar design="Transparent" id="idWorklistToolbar">
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button id="idEditQtyAndDateButton" text="{common_i18n>orderEditQtyAndDateButton}" type="Transparent" press="handleEditQtyAndDateButton"
+					enabled="{ActionButtonVisiblity>/EditQtyAndDateButtonEditable}" visible="{ActionButtonVisiblity>/EditQtyAndDateButtonVisible}"/>
+				<Button id="idEditButton" text="{common_i18n>EditButton}" type="Transparent" press="handleEditPress"
+					visible="{=${ActionButtonVisiblity>/EditButtonVisible} &amp;&amp; ${ActionButtonVisiblity>/EditButtonNavigable} }"&nbsp;
+					enabled="{=${ActionButtonVisiblity>/EditButtonEditable} &amp;&amp; ${ActionButtonVisiblity>/EditButtonNavigable} }" />
+				<Button id="idOrderReleaseButton" text="{common_i18n>orderReleaseButton}" type="Transparent" press="handleReleaseButton"
+					enabled="{ActionButtonVisiblity>/ReleaseButtonEditable}" visible="{ActionButtonVisiblity>/ReleaseButtonVisible}"/>
+				<!--Change Order -->
+				<Button text="{path: '/#C_ProductionHoldType/ProdnHoldIsAppldForOrderChg/@sap:label', model: 'HoldModel'}" press="onPressOrdSpcfcChange"
+					visible="{ActionButtonVisiblity>/bIsOrderSpecificHoldAvailable}"/>
+				<!--Display Order Change-->
+				<Button text="{common_i18n>manageChangeOrder}" press="onPressDisplayOrdScpfcChange"
+					visible="{ActionButtonVisiblity>/bIsDisplayOrderSpecificHoldAvailable}"/>
+				<Button id="idOrderHoldButton" text="{common_i18n>orderHoldButton}" type="Transparent" press="handleHoldButton"
+					visible="{ActionButtonVisiblity>/HoldButtonVisible}"/>
+				<!--enabled="{ActionButtonVisiblity>/HoldButtonEditable}" visible="{HoldButtonVisiblity>/HoldButtonVisible}"/>-->
+				<Button id="idMasterDataRereadButton" text="{common_i18n>masterDataRereadButton}" type="Transparent" press="handleRereadButton"
+					enabled="{ActionButtonVisiblity>/RereadButtonEditable}"/>
+			</OverflowToolbar>
+		</smartTable:customToolbar>
+		<smartTable:customData>
+			<core:CustomData key="p13nDialogSettings"
+				value='\{"columns":\{"visible": true \},"sort":\{"visible": true\},"filter":\{"visible": false\},"group":\{"visible": true\}\}'/>
+		</smartTable:customData>
+		<Table fixedLayout="false" growing="true" growingScrollToLoad="true" growingThreshold="12" id="idOrdersTable" mode="MultiSelect"
+			selectionChange="handleTableItemSelection" itemPress="handleOrderSelection">
+			<columns>
+				<Column
+					customData:p13nData='\{"columnKey":"CustProductionOrderID", "leadingProperty":["ManufacturingOrder","MfgFeatureIsActiveInAnyPlant","ManufacturingFeature","ManufacturingFeatureIsActive","MfgOrderOperationText"] , "sortProperty" :"ManufacturingOrder"\+
+}'
+					id="idColumnProd">
+					<header>
+						<Text id="idTextColumnProd" text="{common_i18n>Order}" tooltip="{common_i18n>ManufacturingOrderTooltip}"/>
+					</header>
+				</Column>
+				<Column
+					customData:p13nData='\{"columnKey":"CustMaterial", "leadingProperty":["Material","MaterialName","ProductionPlant","MRPArea",&nbsp;
+					"MfgOrderPlannedYieldQty", "ProductionUnit","OrderMissingQuantity","MfgOrderPlannedTotalQty","MfgOrderPlannedScrapQty","ActualDeliveredQuantity","OrderIsPrinted",
+					"OrderIsPreCosted","SettlementRuleIsCreated", "SettlementRuleIsCrtedManually", "OrderIsScheduled", "OrderHasGeneratedOperations", "OrderIsToBeHandledInBatches", "MaterialAvailyIsNotChecked","OrderIsShopFloorOrder"], "sortProperty" :"Material"\}'
+					id="idColumnMaterial">
+					<header>
+						<Text id="idTextColumnMaterial" text="{common_i18n>Material}" tooltip="{common_i18n>MaterialTooltip}"/>
+					</header>
+				</Column>
+				
+				
+				<Column hAlign="End"
+					customData:p13nData='\{"columnKey":"CustOpenOperationQuantity", "leadingProperty":["OrderOpenQuantity"]\}'
+					id="idMfgOrderOperation">
+					<header>
+						<Text text="{common_i18n>OpenQuantity}" tooltip="{common_i18n>OpenQuantityTooltip}"/>
+					</header>
+				</Column>
+				
+				
+				
+				<Column hAlign="Center"
+					customData:p13nData='\{"columnKey":"CustStatus", "leadingProperty":["OrderStatusInternalID","OrderIsCreated","OrderIsReleased","OrderIsConfirmed","OrderIsPartiallyConfirmed", "OrderIsDelivered","OrderIsDeleted","OrderIsPartiallyReleased", "OrderIsTe+
+chnicallyCompleted","OrderIsClosed", "OrderIsPartiallyDelivered", "OrderIsLocked","MfgOrderIsToBeDeleted"], "sortProperty" :"OrderStatusInternalID"\}'
+					id="idColumnStatus">
+					<header>
+						<Text id="idTextColumnStatus" text="{common_i18n>Status}" tooltip="{common_i18n>OrderStatusTooltip}"/>
+					</header>
+				</Column>
+				<!-- This column is needed for the Change Impact Analyzer App. It contains the activity status of an operation. The column
+				is only filled and visible in the case that the worklist is called from the Change Impact Analyzer App. The filling of the field is
+				done in the oData Service PP_MPE_ORDER_MANAGE class CL_PP_MPE_ORDER_MANAGE_DPC_EXT method C_MANAGEPRODUCTI_GET_ENTITYSET and class
+				CL_PP_MPE_ORDER_MANAGE_MPC_EXT method DEFINE. In Manage Production Order App the column is never filled and shown to avoid performance issues. -->
+				<Column hAlign="Center" visible="{= ${MfgFeatureIsActiveInAnyPlant} === 'X' ? true : false}"
+					customData:p13nData='\{"columnKey":"ImpactedActyExecSts", "leadingProperty":["ImpactedActyExecSts"] , "sortProperty" :"ImpactedActyExecSts"\}'
+					id="idColumnImpactedActyExecSts">
+					<header>
+						<Text id="idTextColumnImpactedActyExecSts" text="{common_i18n>ExecutionStatus}" tooltip="{common_i18n>ExecutionStatusTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End"
+					customData:p13nData='\{"columnKey":"CustStart", "leadingProperty":["MfgOrderScheduledStartDate","MfgOrderScheduledStartTime","MfgOrderActualStartTime"], "type": "date"\}'
+					id="idColumnStartDateTime">
+					<header>
+						<Text text="{common_i18n>Start}" tooltip="{common_i18n>OrderStartTooltip}"/>
+					</header>
+				</Column>
+				<!--<Column hAlign="Begin"-->
+				<Column hAlign="End"
+					customData:p13nData='\{"columnKey":"CustEnd", "leadingProperty":["MfgOrderScheduledEndDate","MfgOrderConfirmedEndDate","MfgOrderScheduledEndTime","MfgOrderConfirmedEndTime"], "type": "date"\}'
+					id="idColumnEndDateTime">
+					<header>
+						<Text text="{common_i18n>End}" tooltip="{common_i18n>OrderEndTooltip}"/>
+					</header>
+				</Column>
+				<Column
+					customData:p13nData='\{"columnKey":"CustCurrentProgress", "leadingProperty":["OpTotalConfirmedYieldQty","OpPlannedTotalQuantity","MfgOrderConfirmedScrapQty","OperationText","MfgOrderActualStartDate","OrderExecutionEndIsLate","OrderExecutionStartIsLa+
+te","ManufacturingOrderOperation","OperationIsConfirmed"]\}'>
+					<header>
+						<Text text="{common_i18n>CurrentProgress}" tooltip="{common_i18n>CurrentProgressTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="Begin"
+					customData:p13nData='\{"columnKey":"CustOrderIssue", "leadingProperty":["OrderHasProductionHold","OrderExecutionStartIsLate","OrderExecutionEndIsLate","OrderHasMissingComponents","OrderHasQualityIssue","OrderYieldDeviationQty","ExecutionStartLatenes+
+sInMins","ExecutionEndLatenessInMinutes","InspHasRejectedCharc","InspHasRejectedInspSubset","InspHasRejectedInspLot"]\}'
+					id="idColumnIssue">
+					<header>
+						<Text text="{common_i18n>OperationIssue}" tooltip="{common_i18n>OperationIssueTooltip}"/>
+					</header>
+				</Column>
+				<Column visible="false"
+					customData:p13nData='\{"columnKey":"CustInspectionLot", "leadingProperty":["InspectionLot"], "sortProperty" :"InspectionLot"\}'>
+					<header>
+						<Text text="{common_i18n>InspectionLot}" tooltip="{common_i18n>InspectionLotTooltip}"/>
+					</header>
+				</Column>
+				<Column visible="false"
+					customData:p13nData='\{"columnKey":"CustScheduleStart", "leadingProperty":["MfgOrderScheduledStartDate","MfgOrderScheduledStartTime"], "sortProperty" :"MfgOrderScheduledStartDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ScheduledStart}" tooltip="{common_i18n>ScheduledStartTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustScheduleEnd", "leadingProperty":["MfgOrderScheduledEndDate","MfgOrderScheduledEndTime"], "sortProperty" :"MfgOrderScheduledEndDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ScheduledEndDate}" tooltip="{common_i18n>ScheduledEndDateTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustActualStart", "leadingProperty":["MfgOrderActualStartDate","MfgOrderActualStartTime"], "sortProperty" :"MfgOrderActualStartDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ActualStart}" tooltip="{common_i18n>ActualStartTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustActualEnd", "leadingProperty":["MfgOrderActualEndDate"], "sortProperty" :"MfgOrderActualEndDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ActualEnd}" tooltip="{common_i18n>ActualEndTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustPlannedStart", "leadingProperty":["MfgOrderPlannedStartDate"], "sortProperty" :"MfgOrderPlannedStartDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>PlannedStartDate}" tooltip="{common_i18n>PlannedStartDateTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustPlannedEnd", "leadingProperty":["MfgOrderPlannedEndDate"], "sortProperty" :"MfgOrderPlannedEndDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>PlannedEndDate}" tooltip="{common_i18n>PlannedEndDateTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustOrderCreateDate", "leadingProperty":["MfgOrderCreationDate"], "sortProperty" :"MfgOrderCreationDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>OrderCreationDate}" tooltip="{common_i18n>OrderCreationTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustLastChangeDate", "leadingProperty":["LastChangeDate"], "sortProperty" :"LastChangeDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ChangedOn}" tooltip="{common_i18n>ChangedOnTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"CustReleaseDate", "leadingProperty":["MfgOrderActualReleaseDate"], "sortProperty" :"MfgOrderActualReleaseDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ReleaseDate}" tooltip="{common_i18n>ReleaseDateTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"PlannedReleaseDate", "leadingProperty":["MfgOrderPlannedReleaseDate"], "sortProperty" :"MfgOrderPlannedReleaseDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>PlannedReleaseDate}" tooltip="{common_i18n>PlannedReleaseDateTooltip}"/>
+					</header>
+				</Column>
+				<Column hAlign="End" visible="false"
+					customData:p13nData='\{"columnKey":"ScheduledReleaseDate", "leadingProperty":["MfgOrderScheduledReleaseDate"], "sortProperty" :"MfgOrderScheduledReleaseDate", "type": "date"\}'>
+					<header>
+						<Text text="{common_i18n>ScheduledReleaseDate}" tooltip="{common_i18n>ScheduledReleaseDateTooltip}"/>
+					</header>
+				</Column>
+				<Column visible="false" customData:p13nData='\{"columnKey":"EffectivityParameterDesc", "leadingProperty":["EffectivityParameterDesc"]\}'>
+					<header>
+						<Text
+							text="{=${/#C_ManageProductionOrderType/EffectivityParameterDesc/@sap:customLabel} === undefined ? ${/#C_ManageProductionOrderType/EffectivityParameterDesc/@sap:label} : ${/#C_ManageProductionOrderType/EffectivityParameterDesc/@sap:customLabel}}"/+
+>
+					</header>
+					<!--UI code extension for long text  -->
+					
+						<Column visible="true" customData:p13nData='\{"columnKey":"Long Text"\}' >
+					<header>
+						<Text
+							text="Long text"
+>
+					</header>
+					
+				</Column>
+			</columns>
+			<ColumnListItem type="Navigation">
+				<cells>
+					<Link text="{ManufacturingOrder}" press="handleOrderNumberPress" emphasized="true"></Link>
+					<VBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+						<Link class="sapUiTinyMarginBottom" text="{Material}" press="handleMaterialLinkPress"></Link>
+						<Text text="{MaterialName}"></Text>
+					</VBox>
+					<HBox alignContent="End" justifyContent="End" class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+						<Label text="{OrderOpenQuantity}"></Label>
+						<Text class="sapUiTinyMarginBegin" text="{ProductionUnit}"></Text>
+					</HBox>
+					<Link text="{parts:[{path:'OrderStatusInternalID'}], formatter:'.commonFormatter.getStatusText'}" press="handleStatusLinkPress"></Link>
+					<!-- This column is needed for the Change Impact Analyzer App. It contains the activity status of an operation. The column
+					is only filled and visible in the case that the worklist is called from the Change Impact Analyzer App. The filling of the field is
+					done in the oData Service PP_MPE_ORDER_MANAGE class CL_PP_MPE_ORDER_MANAGE_DPC_EXT method C_MANAGEPRODUCTI_GET_ENTITYSET and class
+					CL_PP_MPE_ORDER_MANAGE_MPC_EXT method DEFINE. In Manage Production Order App the column is never filled and shown to avoid performance issues. -->
+					<Text text="{ImpactedActyExeSts}" tooltip="{common_i18n>ExecutionStatusTooltip}"></Text>
+					<HBox class="sapUiTinyMarginTopBottom" alignContent="Start" justifyContent="SpaceBetween">
+						<VBox width="55%" class="sapUiTinyMarginEnd" justifyContent="Center" alignItems="Start">
+							<core:Icon
+								visible="{parts:[{path:'MfgOrderScheduledStartDate'}, {path:'MfgOrderActualStartDate'}], formatter:'.commonFormatter.iconBasedonStartDate'}"
+								tooltip="{common_i18n>ScheduledTooltip1}" src="sap-icon://future"></core:Icon>
+						</VBox>
+						<VBox justifyContent="End" alignItems="End">
+							<Label text="{parts:[{path: 'MfgOrderScheduledStartDate'}, {path:'MfgOrderActualStartDate'}], formatter:'.commonFormatter.DatePriority'}"></Label>
+							<Text
+								text="{parts:[{path: 'MfgOrderScheduledStartDate'}, {path:'MfgOrderActualStartDate'}, {path:'MfgOrderScheduledStartTime'}, {path:'MfgOrderActualStartTime'}], formatter:'.commonFormatter.TimePriority'}"></Text>
+						</VBox>
+					</HBox>
+					<HBox class="sapUiTinyMarginTopBottom" alignContent="Start" justifyContent="SpaceBetween">
+						<VBox width="55%" class="sapUiTinyMarginEnd" justifyContent="Center" alignItems="Start">
+							<core:Icon
+								visible="{parts:[{path:'MfgOrderScheduledEndDate'}, {path:'MfgOrderConfirmedEndDate'}], formatter:'.commonFormatter.iconBasedonEndDate'}"
+								tooltip="{common_i18n>ScheduledTooltip1}" src="sap-icon://future"></core:Icon>
+						</VBox>
+						<VBox justifyContent="End" alignItems="End">
+							<Label text="{parts:[{path: 'MfgOrderScheduledEndDate'}, {path:'MfgOrderConfirmedEndDate'}], formatter:'.commonFormatter.DatePriority'}"></Label>
+							<Text
+								text="{parts:[{path: 'MfgOrderScheduledEndDate'}, {path:'MfgOrderConfirmedEndDate'}, {path:'MfgOrderScheduledEndTime'}, {path:'MfgOrderConfirmedEndTime'}], formatter:'.commonFormatter.TimePriority'}"></Text>
+						</VBox>
+					</HBox>
+					<VBox>
+						<Text class="sapUiTinyMarginTop"
+							visible="{parts:[{path:'OperationText'},{path:'OrderStatusInternalID'}], formatter:'.commonFormatter.setVisibleProgressIndicator'}"
+							text="{parts:[{path:'OperationText'},{path:'ManufacturingOrderOperation'}], formatter:'.commonFormatter.getCombineDescriptionWithId'}"/>
+						<ProgressIndicator
+							visible="{parts:[{path:'OperationText'},{path:'OrderStatusInternalID'}], formatter:'.commonFormatter.setVisibleProgressIndicator'}"
+							class="sapUiTinyMarginTop"
+							displayValue="{parts:[{path:'OpTotalConfirmedYieldQty'}, {path:'OpPlannedTotalQuantity'}], formatter: '.commonFormatter.progressDisplayValue' }"
+							percentValue="{parts:[{path:'OpTotalConfirmedYieldQty'}, {path:'OpPlannedTotalQuantity'}], formatter: '.commonFormatter.percentValue' }"
+							state="{= ${OperationIsConfirmed} !== 'X' ? 'Warning' : 'Success'}"/>
+					</VBox>
+					<HBox>
+						<core:Icon color="{parts:[{path:'OrderHasProductionHold'}], formatter:'.commonFormatter.setOrderHoldIssueIconColor'}"
+							src="sap-icon://status-error" tooltip="{common_i18n>OnHoldTooltip}" press="handleIconPress"
+							visible="{= ${MfgFeatureIsActiveInAnyPlant} === 'X' ? true : false}"></core:Icon>
+						<core:Icon class="sapUiTinyMarginBeginEnd"
+							color="{parts:[{path:'OrderExecutionStartIsLate'}, {path:'OrderExecutionEndIsLate'}], formatter:'.commonFormatter.setDelayIconColor'}"
+							src="sap-icon://history" tooltip="{common_i18n>DelayTooltip}" press="handleIconPress"></core:Icon>
+						<core:Icon class="sapUiTinyMarginBeginEnd"
+							color="{parts:[{path:'OrderHasMissingComponents'}], formatter:'.commonFormatter.setMissingComponentIconColor'}" src="sap-icon://tree"
+							tooltip="{common_i18n>ComponentIssueTooltip}" press="handleIconPress"></core:Icon>
+						<core:Icon class="sapUiTinyMarginBeginEnd"
+							color="{parts:[{path:'OrderYieldDeviationQty'}], formatter:'.commonFormatter.setMissingQuantityIconColor'}" src="sap-icon://dimension"
+							tooltip="{common_i18n>QuantityIssueTooltip}" press="handleIconPress"></core:Icon>
+						<core:Icon class="sapUiTinyMarginBegin"
+							color="{parts:[{path:'OrderHasQualityIssue'}, {path:'InspHasRejectedCharc'}, {path:'InspHasRejectedInspSubset'}, {path:'InspHasRejectedInspLot'}], formatter:'.commonFormatter.setMissingQualityIssueIconColor'}"
+							src="sap-icon://quality-issue" tooltip="{common_i18n>QualityIssueTooltip}" press="handleIconPress"></core:Icon>
+					</HBox>
+					<VBox>
+						<Link class="sapUiTinyMarginBottom" text="{InspectionLot}" press="handleInspectionPress"></Link>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderScheduledStartDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+						<Text
+							text="{path: 'MfgOrderScheduledStartTime', type: 'sap.ui.model.odata.type.Time', formatOptions: {style: 'short', relativeScale: 'auto' }}"></Text>
+					</VBox>
+					<!--<VBox>-->
+					<!--	<Text text="{path: 'MfgOrderScheduledEndDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd'}}"></Text>-->
+					<!--	<Text-->
+					<!--		text="{path: 'MfgOrderScheduledEndTime', type: 'sap.ui.model.odata.type.Time', formatOptions: {style: 'short', relativeScale: 'auto' }}"></Text>-->
+					<!--</VBox>-->
+					<!--Test-->
+					<VBox justifyContent="End" alignItems="End">
+						<!--<Label text="{parts:[{path: 'MfgOrderScheduledEndDate'}, {path:'MfgOrderScheduledEndDate'}], formatter:'.commonFormatter.DatePriority'}"></Label>-->
+						<!--<Text text="{parts:[{path: 'MfgOrderScheduledEndTime'}, {path:'MfgOrderScheduledEndTime'}], formatter:'.commonFormatter.TimePriority'}"></Text>-->
+						<Text text="{path: 'MfgOrderScheduledEndDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderActualStartDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+						<Text
+							text="{path: 'MfgOrderActualStartTime', type: 'sap.ui.model.odata.type.Time', formatOptions: {style: 'short', relativeScale: 'auto' }}"></Text>
+					</VBox>
+					<!--<VBox>-->
+					<!--	<Text text="{path: 'MfgOrderConfirmedEndDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd'}}"></Text>-->
+					<!--	<Text-->
+					<!--		text="{path: 'MfgOrderConfirmedEndTime', type: 'sap.ui.model.odata.type.Time', formatOptions: {style: 'short', relativeScale: 'auto' }}"></Text>-->
+					<!--</VBox>-->
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderActualEndDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderPlannedStartDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderPlannedEndDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderCreationDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'LastChangeDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderActualReleaseDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderPlannedReleaseDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox justifyContent="End" alignItems="End">
+						<Text text="{path: 'MfgOrderScheduledReleaseDate', type: 'sap.ui.model.type.Date', formatOptions: {format: 'MMMEEEd', UTC:true}}"></Text>
+					</VBox>
+					<VBox>
+						<Text text="{EffectivityParameterDesc}"/>
+					</VBox>
+						<VBox>
+						<Text text="Long Text"/>
+					</VBox>
+					
+				</cells>
+			</ColumnListItem>
+		</Table>
+	</smartTable:SmartTable>
+					
 				</f:content>
 			</f:DynamicPage>
 		</semantic:content>

@@ -3,12 +3,12 @@
  */
 /*global location*/
 sap.ui.define([
-		"i2d/mpe/orders/manages1/controller/BaseController",
+		"i2d/mpe/orders/manages2/controller/BaseController",
 		"sap/i2d/mpe/lib/commons1/blocks/OrderDetailsHeaderHelper",
 		"sap/ui/model/resource/ResourceModel",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"i2d/mpe/orders/manages1/model/formatter",
+		"i2d/mpe/orders/manages2/model/formatter",
 		"sap/i2d/mpe/lib/commons1/utils/formatter",
 		"sap/i2d/mpe/lib/commons1/utils/util",
 		"sap/i2d/mpe/lib/commons1/fragments/OrderOperationStatus",
@@ -29,7 +29,7 @@ sap.ui.define([
 		ApplyHoldDialog, ReuseProjectConstants, Defects, defectFormatter, OrdSpcfcChange, NavHelper) {
 		"use strict";
 
-		return BaseController.extend("i2d.mpe.orders.manages1.controller.Object", {
+		return BaseController.extend("i2d.mpe.orders.manages2.controller.Object", {
 
 			formatter: formatter,
 			commonFormatter: commonFormatter,
@@ -138,7 +138,7 @@ sap.ui.define([
 
 			/**
 			 * GetOrderDetailPageI18nModel applies text labels from Reuse project
-			 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+			 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 			 * @public
 			 */
 			getOrderDetailPageI18nModel: function () {
@@ -378,7 +378,7 @@ sap.ui.define([
 			/**
 			 * Handler for Edit order 
 			 * This method witll open SAP CO02 transaction in a new tab.
-			 * @member i2d.mpe.orders.manages1.controller.Object
+			 * @member i2d.mpe.orders.manages2.controller.Object
 			 * @public
 			 **/
 			handleEditOrderPress: function () {
@@ -393,7 +393,7 @@ sap.ui.define([
 			/**
 			 * Handler for Order  confirmation.
 			 * this methods will open SAP WEB GUI transaction CO15.
-			 * @member i2d.mpe.orders.manages1.controller.Object
+			 * @member i2d.mpe.orders.manages2.controller.Object
 			 * @public
 			 **/
 			handleConfirmOrderPress: function (oEvent) {
@@ -429,7 +429,7 @@ sap.ui.define([
 			/** 
 			 * Handler for status link press, opens a popover which shows the order status information
 			 * @param oEvent
-			 *  @member i2d.mpe.orders.manages1.controller.Object
+			 *  @member i2d.mpe.orders.manages2.controller.Object
 			 * @public
 			 */
 			handleStatusLinkPress: function (oEvent) {
@@ -443,7 +443,7 @@ sap.ui.define([
 			/** 
 			 * Handler for material link press, opens a popover which shows the details of the material
 			 * @param oEvent
-			 *  @member i2d.mpe.orders.manages1.controller.Object
+			 *  @member i2d.mpe.orders.manages2.controller.Object
 			 * @public
 			 */
 			handleMaterialLinkPress: function (oEvent) {
@@ -494,7 +494,7 @@ sap.ui.define([
 
 			/**
 			 * Unsubscribe the event bus before exiting
-			 * @member i2d.mpe.orders.manages1.controller.Object
+			 * @member i2d.mpe.orders.manages2.controller.Object
 			 * @public
 			 */
 			onExit: function () {
@@ -645,12 +645,12 @@ sap.ui.define([
 				// define events' details here for which event bus will be subscribed
 				var oEventBusParams = {
 					ApplyHoldDialog: {
-						Channel: "sap.i2d.mpe.orders.manages1.Worklist",
+						Channel: "sap.i2d.mpe.orders.manages2.Worklist",
 						Event: "onHoldSuccessfullyApplied",
 						Callback: this.onHoldSuccessfullyComplete
 					},
 					ReleaseOrderAnyway: {
-						Channel: "sap.i2d.mpe.orders.manages1.Object",
+						Channel: "sap.i2d.mpe.orders.manages2.Object",
 						Event: "onReleaseOrderAnywayAppliedDetails",
 						Callback: this.onReleaseOrderAnywayCallback
 					}

@@ -2,11 +2,11 @@
  * Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
  */
 sap.ui.define([
-	"i2d/mpe/orders/manages1/controller/BaseController",
+	"i2d/mpe/orders/manages2/controller/BaseController",
 	"sap/i2d/mpe/lib/commons1/fragments/ManageOrderWorklistHelper",
 	"sap/ui/model/resource/ResourceModel",
 	"sap/ui/model/json/JSONModel",
-	"i2d/mpe/orders/manages1/model/formatter",
+	"i2d/mpe/orders/manages2/model/formatter",
 	"sap/i2d/mpe/lib/commons1/utils/formatter",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
@@ -31,7 +31,7 @@ sap.ui.define([
 	ReuseProjectConstants, OrdSpcfcChange, NavHelper) {
 	"use strict";
 
-	return BaseController.extend("i2d.mpe.orders.manages1.controller.Worklist", {
+	return BaseController.extend("i2d.mpe.orders.manages2.controller.Worklist", {
 
 		formatter: formatter,
 		commonFormatter: commonFormatter,
@@ -189,14 +189,14 @@ sap.ui.define([
 
 		/**
 		 * onHandleMessagesButtonPress is called when error message button in footer is clicked
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent event information is provided based on the control
 		 */
 		onHandleMessagesButtonPress: function (oEvent) {
 			var oMessagesButton = oEvent.getSource();
 			if (!this._messagePopover) {
-				this._messagePopover = sap.ui.xmlfragment("i2d.mpe.orders.manages1.fragments.MessagePopover", this);
+				this._messagePopover = sap.ui.xmlfragment("i2d.mpe.orders.manages2.fragments.MessagePopover", this);
 				oMessagesButton.addDependent(this._messagePopover);
 			}
 			this._messagePopover.toggle(oMessagesButton);
@@ -204,7 +204,7 @@ sap.ui.define([
 
 		/**
 		 * GetWorklistI18nModel applies text labels from Reuse project
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		getWorklistI18nModel: function () {
@@ -217,7 +217,7 @@ sap.ui.define([
 
 		/**
 		 * OnAfterRendering of Worklist
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		onAfterRendering: function () {
@@ -234,7 +234,7 @@ sap.ui.define([
 		 * 
 		 * ApplyFilterOnAOR method applies the filter based on the AOR selected.This method gets called from reuse library project.
 		 * @public
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param {obejct} oSelectedSupervisor AOR Selection containing SuperVisor Information 
 		 * @param {obejct} oSelectedWorkcenter AOR Selection containing WorkCenter Information
 		 */
@@ -260,7 +260,7 @@ sap.ui.define([
 		/**
 		 * Calls the personalization service and shows the AOR assigned if any to user and 
 		 * filters the smart table
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		loadAORData: function () {
@@ -391,7 +391,7 @@ sap.ui.define([
 		/*
 		 * On click of the Order Item
 		 * Navigate to the detail page , to display the Order details
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param oEvent to get the binding context path
 		 */
@@ -417,7 +417,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when any item is pressed of smart table . This method reads the current order id and updates the detail model.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {string} sOrderId of the selected order
 		 */
@@ -438,7 +438,7 @@ sap.ui.define([
 		/** 
 		 * Filter Change event handler
 		 * @param oEvent
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleFilterChange: function (oEvent) {
@@ -448,7 +448,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when each row check box is clicked on
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleTableItemSelection: function (oEvent) {
@@ -543,7 +543,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when Release button is clicked on
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleReleaseButton: function (oEvent) {
@@ -568,7 +568,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when Edit Qty and Date button is clicked on
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleEditQtyAndDateButton: function (oEvent) {
@@ -621,7 +621,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when Hold button is clicked on
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleHoldButton: function (oEvent) {
@@ -669,17 +669,17 @@ sap.ui.define([
 			// define events' details here for which event bus will be subscribed
 			var oEventBusParams = {
 				ApplyHoldDialog: {
-					Channel: "sap.i2d.mpe.orders.manages1",
+					Channel: "sap.i2d.mpe.orders.manages2",
 					Event: "onHoldSuccessfullyApplied",
 					Callback: this.onHoldSuccessfullyComplete
 				},
 				EditQtyAndDateDialog: {
-					Channel: "sap.i2d.mpe.orders.manages1",
+					Channel: "sap.i2d.mpe.orders.manages2",
 					Event: "onEditQtyAndDateSuccessfullyApplied",
 					Callback: this.onEditQtyAndDateSuccessfullyComplete
 				},
 				ReleaseOrderAnyway: {
-					Channel: "sap.i2d.mpe.orders.manages1",
+					Channel: "sap.i2d.mpe.orders.manages2",
 					Event: "onReleaseOrderAnywayApplied",
 					Callback: this.onReleaseOrderAnywayCallback
 				}
@@ -797,7 +797,7 @@ sap.ui.define([
 		/**
 		 * Event handler when a table item gets pressed
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		onPress: function (oEvent) {
@@ -819,7 +819,7 @@ sap.ui.define([
 
 		/**
 		 * Saving a variant as tile
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent
 		 */
@@ -932,7 +932,7 @@ sap.ui.define([
 		 * Event handler of issue selection chage.
 		 * Selection and Deselection functionality of the options.
 		 * Also updates the AppState.
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param oEvent
 		 * @public
 		 */
@@ -951,7 +951,7 @@ sap.ui.define([
 		/** 
 		 * Event handler of Delay filter
 		 * Also updates the AppState.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param oEvent
 		 * @public
 		 */
@@ -964,7 +964,7 @@ sap.ui.define([
 		/** 
 		 * Event handler of Status Selection change.
 		 *  Also updates the AppState.
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param oEvent
 		 * @public
 		 */
@@ -982,7 +982,7 @@ sap.ui.define([
 
 		/** 
 		 * Handles Multi selection in the Status filters.
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param oEvent
 		 * @public
 		 */
@@ -1027,7 +1027,7 @@ sap.ui.define([
 		/** 
 		 * Event handler of smart table rebind.
 		 * Applies filters on smart table based on the AOR and Custom filters.
-		 *  @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 *  @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @param oEvent
 		 * @public
 		 */
@@ -1183,7 +1183,7 @@ sap.ui.define([
 
 		/**
 		 * Used to calculate the Status custom filters. 
-		 * @memberOf i2d.mpe.operations.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.operations.manages2.controller.Worklist
 		 * @public
 		 * @return {object}  : The selected status Filters
 		 */
@@ -1211,7 +1211,7 @@ sap.ui.define([
 
 		/**
 		 * Used to calculate the Issue Filter array. 
-		 * @memberOf i2d.mpe.operations.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.operations.manages2.controller.Worklist
 		 * @public
 		 * @return {object}  : The selected Issues Filters
 		 */
@@ -1245,7 +1245,7 @@ sap.ui.define([
 
 		/**
 		 * Used to calculate the Delay Filter array. 
-		 * @memberOf i2d.mpe.operations.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.operations.manages2.controller.Worklist
 		 * @public
 		 * @return {object}  : The selected Delay Filters
 		 */
@@ -1264,7 +1264,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when the Variant is fetched in the SmartFilterBar. The list of Variants is set here
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleVariantFetch: function () {
@@ -1289,7 +1289,7 @@ sap.ui.define([
 
 		/**
 		 * Triggered when the Variant is loaded in the SmartFilterBar. This method reads _CUSTOM data of the variant and sets to the respective custom filter
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleVariantLoad: function () {
@@ -1323,7 +1323,7 @@ sap.ui.define([
 		/** 
 		 * Event before variant save.
 		 * modifies the custom parameter with all filters applied, which can be used later by smart filer bar.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent action data performed at that event
 		 * @param {boolean} bGOButtonClickFlag Flag provided for differentiating multiple table rebind calls
@@ -1388,7 +1388,7 @@ sap.ui.define([
 		/**
 		 * Triggered when the save variant is pressed in the SmartFilterBar.
 		 * To check if the Create tile option is selected, and updates the personalization service.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent Event information after saving the variant
 		 */
@@ -1411,7 +1411,7 @@ sap.ui.define([
 
 		/**
 		 * Manages a variant
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent Event information for managing the variant
 		 */
@@ -1421,7 +1421,7 @@ sap.ui.define([
 
 		/**
 		 * Select a variant
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 * @param {object} oEvent Event information for selecting the variant
 		 */
@@ -1438,7 +1438,7 @@ sap.ui.define([
 
 		/** 
 		 * Loads variant when the user launches tile.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		loadInitialVariant: function () {
@@ -1466,7 +1466,7 @@ sap.ui.define([
 		/** 
 		 * Event handler of Icon press, which opens the IssuePopover icon.
 		 * @param {object} oEvent Event info for opening the issues pop over
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleIconPress: function (oEvent) {
@@ -1528,7 +1528,7 @@ sap.ui.define([
 		/** 
 		 * Handler for material link press, opens a popover which shows the details of the material
 		 * @param oEvent
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleMaterialLinkPress: function (oEvent) {
@@ -1552,7 +1552,7 @@ sap.ui.define([
 		/** 
 		 * Handler for order number link press, opens a popover which shows the details of the order
 		 * @param oEvent
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleOrderNumberPress: function (oEvent) {
@@ -1575,7 +1575,7 @@ sap.ui.define([
 		/** 
 		 * Handler for status link press, opens a popover which shows the order status information
 		 * @param oEvent
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleStatusLinkPress: function (oEvent) {
@@ -1589,7 +1589,7 @@ sap.ui.define([
 		/** 
 		 * Handler for changing the smarttable no data text
 		 * @param 
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		ChangeSTableNoDataText: function () {
@@ -1604,7 +1604,7 @@ sap.ui.define([
 
 		/*On click of the Go button 
 		 *Loads the variants, which are changed 
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleGOBtnPress: function (oEvent) {
@@ -1627,7 +1627,7 @@ sap.ui.define([
 
 		/**
 		 * Unsubscribe the event bus before exiting
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		onExit: function () {
@@ -1648,7 +1648,7 @@ sap.ui.define([
 		/**
 		 * Handler for Edit order 
 		 * This method will open SAP CO02 transaction in a new tab.
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 **/
 		handleEditPress: function () {
@@ -1792,7 +1792,7 @@ sap.ui.define([
 		/** 
 		 * Handler for inspection lot link press, opens a popover which shows the order status information
 		 * @param {object} oEvent Event information for pressing on inspection
-		 * @memberOf i2d.mpe.orders.manages1.controller.Worklist
+		 * @memberOf i2d.mpe.orders.manages2.controller.Worklist
 		 * @public
 		 */
 		handleInspectionPress: function (oEvent) {

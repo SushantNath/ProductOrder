@@ -2,13 +2,13 @@
  * Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
  */
 sap.ui.define([
-	"i2d/mpe/orders/manages1/controller/BaseController",
+	"i2d/mpe/orders/manages2/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History"
 ], function (BaseController, JSONModel, History) {
 	"use strict";
 
-	return BaseController.extend("i2d.mpe.orders.manages1.controller.Configuration", {
+	return BaseController.extend("i2d.mpe.orders.manages2.controller.Configuration", {
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("Configuration").attachPatternMatched(this.onRoutePatternMatched, this);

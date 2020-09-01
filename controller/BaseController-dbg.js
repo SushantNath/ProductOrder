@@ -6,7 +6,7 @@ sap.ui.define([
 ], function(Controller) {
 	"use strict";
 
-	return Controller.extend("i2d.mpe.orders.manages1.controller.BaseController", {
+	return Controller.extend("i2d.mpe.orders.manages2.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router.
 		 * @public

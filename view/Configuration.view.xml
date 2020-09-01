@@ -3,7 +3,7 @@
     Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
 
 -->
-<mvc:View controllerName="i2d.mpe.orders.manages1.controller.Configuration" xmlns:html="http://www.w3.org/1999/xhtml"
+<mvc:View controllerName="i2d.mpe.orders.manages2.controller.Configuration" xmlns:html="http://www.w3.org/1999/xhtml"
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core">
 	<App>
 		<pages>

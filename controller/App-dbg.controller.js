@@ -2,12 +2,12 @@
  * Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
  */
 sap.ui.define([
-	"i2d/mpe/orders/manages1/controller/BaseController",
+	"i2d/mpe/orders/manages2/controller/BaseController",
 	"sap/ui/model/json/JSONModel"
 ], function(BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("i2d.mpe.orders.manages1.controller.App", {
+	return BaseController.extend("i2d.mpe.orders.manages2.controller.App", {
 
 		onInit: function() {
 			var oViewModel,

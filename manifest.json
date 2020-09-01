@@ -2,7 +2,7 @@
 	"_version": "1.9.0",
 	"sap.app": {
 		"_version": "1.4.0",
-		"id": "i2d.mpe.orders.manages1",
+		"id": "i2d.mpe.orders.manages2",
 		"type": "application",
 		"resources": "resources.json",
 		"i18n": "i18n/i18n.properties",
@@ -133,7 +133,7 @@
 	"sap.ui5": {
 		"_version": "1.2.0",
 		"rootView": {
-			"viewName": "i2d.mpe.orders.manages1.view.App",
+			"viewName": "i2d.mpe.orders.manages2.view.App",
 			"type": "XML",
 			"id": "app"
 		},
@@ -198,7 +198,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "i2d.mpe.orders.manages1.i18n.i18n"
+					"bundleName": "i2d.mpe.orders.manages2.i18n.i18n"
 				},
 				"preload": false
 			},
@@ -293,7 +293,7 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "i2d.mpe.orders.manages1.view",
+				"viewPath": "i2d.mpe.orders.manages2.view",
 				"controlId": "app",
 				"controlAggregation": "pages",
 				"bypassed": {

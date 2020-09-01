@@ -4,7 +4,7 @@
 
 -->
 <mvc:View
-	controllerName="i2d.mpe.orders.manages1.controller.NotFound"
+	controllerName="i2d.mpe.orders.manages2.controller.NotFound"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m">
 

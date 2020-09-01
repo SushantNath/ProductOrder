@@ -3,9 +3,9 @@
     Copyright (C) 2009-2020 SAP SE or an SAP affiliate company. All rights reserved.
 
 -->
-<mvc:View controllerName="i2d.mpe.orders.manages1.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap"
+<mvc:View controllerName="i2d.mpe.orders.manages2.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:uxap="sap.uxap"
 	xmlns:core="sap.ui.core" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
-	xmlns:commonsBlock="sap.i2d.mpe.lib.commons1.blocks" xmlns:customBlock="i2d.mpe.orders.manages1.blocks">
+	xmlns:commonsBlock="sap.i2d.mpe.lib.commons1.blocks" xmlns:customBlock="i2d.mpe.orders.manages2.blocks">
 	<semantic:FullscreenPage id="idOrderDetailsPage" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}" showFooter="false">
 		<semantic:content>
 			<uxap:ObjectPageLayout id="idOrderObjectPageLayout" upperCaseAnchorBar="false" enableLazyLoading="{DetailModel>/bEnableAutoBinding}">
@@ -35,7 +35,7 @@
 					</uxap:ObjectPageHeader>
 				</uxap:headerTitle>
 				<uxap:headerContent>
-					<!--<core:Fragment fragmentName="i2d.mpe.orders.manages1.blocks.OrderDetailsHeader" type="XML"/>-->
+					<!--<core:Fragment fragmentName="i2d.mpe.orders.manages2.blocks.OrderDetailsHeader" type="XML"/>-->
 					<core:Fragment fragmentName="sap.i2d.mpe.lib.commons1.blocks.OrderDetailsHeader" type="XML"/>
 				</uxap:headerContent>
 				<uxap:sections>
